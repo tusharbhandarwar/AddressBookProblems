@@ -84,7 +84,10 @@ public class AddressBookImplementation implements IAddressBook {
              System.out.println("Enter a person Name:");
              String firstName = sc.nextLine();
              for(int i = 0; i <  personList.size(); i++) {
-        	  Person person = personList.get(i);
+        	        Person person = personList.get(i);
+			if(personList.get(i).getFirstName().equals(firstName)) {
+        		System.out.println("Duplicate");
+        	  	}	
 		}
 	}
 	   
