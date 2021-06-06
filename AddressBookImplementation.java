@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class AddressBookImplementation implements IAddressBook {
 	
 	Scanner scanner = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 	List<Person> personList = new ArrayList<Person>();
 	
 	public void add() {
@@ -77,6 +78,15 @@ public class AddressBookImplementation implements IAddressBook {
             	}
             }
          }
+
+	public void addMultiplePerson() {
+        	 
+             System.out.println("Enter a person Name:");
+             String firstName = sc.nextLine();
+             for(int i = 0; i <  personList.size(); i++) {
+        	  Person person = personList.get(i);
+		}
+	}
 	   
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book Program");
@@ -87,7 +97,7 @@ public class AddressBookImplementation implements IAddressBook {
 	        while (condition == true) {
 	    	     Scanner scanner= new Scanner(System.in);
 	    	     Scanner option = new Scanner(System.in);
-	             System.out.println("1.Add Person"+"\n"+"2.Display"+"\n"+"3.Edit person"+"\n"+"4."+"Delete Person");
+	             System.out.println("1.Add Person"+"\n"+"2.Display"+"\n"+"3.Edit person"+"\n"+"4."+"Delete Person"+"\n"+"5.Add Multiple Person");
 	         
                      switch(option.nextInt()) {
 	                 case 1:adressBookImplementation.add();
@@ -102,6 +112,8 @@ public class AddressBookImplementation implements IAddressBook {
 	                       String name = scanner.nextLine();
 	            	       adressBookImplementation.delete(name);
 	            	       break;
+			 case 5:adressBookImplementation.addMultiplePerson();
+	                       break;
 			default:System.out.println("Thank You");
 			}
 		}
