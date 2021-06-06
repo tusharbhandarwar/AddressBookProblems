@@ -68,6 +68,15 @@ public class AddressBookImplementation implements IAddressBook {
           }
             
         }
+	
+	 public void delete(String name) {
+            for (int i = 0; i < personList.size(); i++) {
+            	if(personList.get(i).getFirstName().equals(name)) {
+            		Person person = personList.get(i);
+            		personList.remove(person);
+            	}
+            }
+         }
 	   
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book Program");
@@ -78,7 +87,7 @@ public class AddressBookImplementation implements IAddressBook {
 	        while (condition == true) {
 	    	     Scanner scanner= new Scanner(System.in);
 	    	     Scanner option = new Scanner(System.in);
-	             System.out.println("1.Add Person"+"\n"+"2.Display"+"\n"+"3.Edit person");
+	             System.out.println("1.Add Person"+"\n"+"2.Display"+"\n"+"3.Edit person"+"\n"+"4."+"Delete Person");
 	         
                      switch(option.nextInt()) {
 	                 case 1:adressBookImplementation.add();
@@ -88,6 +97,10 @@ public class AddressBookImplementation implements IAddressBook {
 	                 case 3:System.out.println("Enter the firstName:");
 	                       String firstName = scanner.nextLine();
 	            	       adressBookImplementation.edit(firstName);
+	            	       break;
+			 case 4:System.out.println("Enter the Name of the person do you wants to delete");
+	                       String name = scanner.nextLine();
+	            	       adressBookImplementation.delete(name);
 	            	       break;
 			default:System.out.println("Thank You");
 			}
